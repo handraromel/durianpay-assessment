@@ -24,7 +24,7 @@ The fastest way to run the entire stack:
 
 ```bash
 # 1. Clone the repository
-git clone <repo-url> && cd durianpay-assessment
+git clone https://github.com/handraromel/durianpay-assessment.git && cd durianpay-assessment
 
 # 2. Copy environment file and set JWT_SECRET
 cp .env.example .env
