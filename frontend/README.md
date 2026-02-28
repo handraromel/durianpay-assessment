@@ -24,8 +24,6 @@ npm install
 npm run dev    # starts dev server on http://localhost:5173
 ```
 
-The Vite dev server proxies `/dashboard/*` requests to the backend API automatically.
-
 ## Build
 
 ```bash
@@ -42,19 +40,6 @@ npm test              # run tests in watch mode
 npm run test:run      # run tests once
 npm run test:coverage # run with coverage report
 ```
-
-### Test Coverage
-
-Payment-related test suites:
-
-| Test File                                        | What it tests                     |
-| ------------------------------------------------ | --------------------------------- |
-| `src/utils/__tests__/currency.test.ts`           | Currency formatting utilities     |
-| `src/services/__tests__/paymentService.test.ts`  | Payment API service layer         |
-| `src/hooks/__tests__/usePaymentQuery.test.tsx`   | Payment data fetching hook        |
-| `src/hooks/__tests__/usePaymentSummary.test.tsx` | Payment summary calculations      |
-| `src/hooks/__tests__/usePaymentPage.test.tsx`    | Payment page state & filter logic |
-| `src/pages/__tests__/PaymentPage.test.tsx`       | Payment page component rendering  |
 
 ## Environment Variables
 
