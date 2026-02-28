@@ -29,14 +29,11 @@ make run    # starts server on :8080 (configurable via HTTP_ADDR in .env)
 
 ```bash
 make build  # outputs binary to ./bin/mygolangapp
-./bin/mygolangapp
 ```
 
 ## API Documentation
 
 Swagger UI is available at **http://localhost:8080/docs** when the server is running.
-
-Raw OpenAPI spec: **http://localhost:8080/docs/openapi.yaml**
 
 ## API Endpoints
 
@@ -46,22 +43,17 @@ Raw OpenAPI spec: **http://localhost:8080/docs/openapi.yaml**
 | POST   | `/dashboard/v1/auth/refresh` | Public | Refresh JWT access token    |
 | GET    | `/dashboard/v1/payments`     | Bearer | List payments with filters  |
 | GET    | `/docs`                      | Public | Swagger UI                  |
-| GET    | `/docs/openapi.yaml`         | Public | Raw OpenAPI specification   |
 
 ### Payment Query Parameters
 
 - `status` — `completed`, `processing`, `failed`
-- `id` — exact payment ID
 - `sort` — field name, prefix `-` for descending (e.g., `-created_at`, `amount`, `-merchant`)
 
 ## Seed Data
 
-Auto-seeded on first startup (when DB is empty):
+Auto-seeded on first startup (when DB is empty)
 
-- **3 users:** `cs@test.com` / `password`, `operation@test.com` / `password`, `superuser@test.com` / `Password@123`
-- **40 payments** across various merchants and statuses
-
-Delete `dashboard.db` to re-seed.
+Delete `dashboard.db`, then restart the dev server to re-seed.
 
 ## Makefile Targets
 
@@ -70,8 +62,6 @@ Delete `dashboard.db` to re-seed.
 | `make dep`         | Install & tidy Go dependencies      |
 | `make run`         | Run the server locally              |
 | `make build`       | Build binary to `./bin/mygolangapp` |
-| `make openapi-gen` | Generate OpenAPI types & server     |
-| `make gen-secret`  | Generate random JWT secret          |
 
 ## Environment Variables
 
