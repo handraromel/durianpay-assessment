@@ -17,12 +17,6 @@ cp .env.example .env
 
 # 2. Install dependencies
 make dep
-
-# 3. (Optional) Generate OpenAPI server code
-make openapi-gen
-
-# 4. (Optional) Generate a random JWT secret
-make gen-secret
 ```
 
 ## Run
