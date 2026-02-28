@@ -1,0 +1,60 @@
+services:
+  # Redis for caching and session management
+  redis:
+    image: redis:7-alpine
+    container_name: durianpay-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - durianpay
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: development
+    container_name: durianpay-backend
+    ports:
+      - "8080:8080"
+    environment:
+      HTTP_ADDR: ":8080"
+      OPENAPIYAML_LOCATION: /app/openapi.yaml
+      JWT_SECRET: "${JWT_SECRET}"
+      JWT_EXPIRED: "24h"
+      REDIS_ADDR: "${REDIS_ADDR}"
+    volumes:
+      - ./backend:/app
+      - ./openapi.yaml:/app/openapi.yaml
+    depends_on:
+      - redis
+    networks:
+      - durianpay
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: durianpay-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:8080
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - durianpay
+    stdin_open: true
+    tty: true
+
+volumes:
+  redis_data:
+
+networks:
+  durianpay:
+    driver: bridge
