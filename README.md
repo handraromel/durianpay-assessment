@@ -6,15 +6,15 @@ A fullstack payment dashboard application built with **Go** (backend) and **Reac
 
 | Layer    | Technology                                                                       |
 | -------- | -------------------------------------------------------------------------------- |
-| Backend  | Go 1.25+, SQLite, Redis, JWT                                                     |
-| Frontend | React 19, Vite 7, TypeScript, TanStack Query/Table, Tailwind, HeadlessUI Zustand |
-| Infra    | Docker, Docker Compose, Redis 7                                                  |
-| DB       | Sqlite                                                                           |
+| Backend  | Golang                                                                           |
+| Frontend | React, Vite, TypeScript, TanStack Query/Table, Tailwind, HeadlessUI, Zustand     |
+| Infra    | Docker, Docker Compose, Redis                                                    |
+| DB       | SQLite                                                                           |
 
 ## Prerequisites
 
-- **Go** >= 1.25 — [install](https://go.dev/dl/)
-- **Node.js** >= 24 — [install](https://nodejs.org/)
+- **Go** — [install](https://go.dev/dl/)
+- **Node.js** — [install](https://nodejs.org/)
 - **Docker** & **Docker Compose** — [install](https://docs.docker.com/get-docker/)
 - **Redis** (only for local non-Docker development) — [install](https://redis.io/download)
 
