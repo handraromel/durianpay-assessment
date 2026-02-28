@@ -54,6 +54,8 @@ cd durianpay-assessment
 
 ### Backend
 
+Make sure Redis already installed in your system, see Prerequisites
+
 ```bash
 cd backend
 cp .env.example .env        # configure environment variables (JWT_SECRET, REDIS_ADDR, etc.)
@@ -80,11 +82,11 @@ Environment files must be created from their `.env.example` templates before run
 
 | Location        | Template                | Purpose                               |
 | --------------- | ----------------------- | ------------------------------------- |
-| `.env`          | `.env.example`          | Docker Compose variables (JWT_SECRET) |
+| `.env`          | `.env.example`          | Docker Compose variables              |
 | `backend/.env`  | `backend/.env.example`  | Backend server configuration          |
 | `frontend/.env` | `frontend/.env.example` | Frontend API base URL                 |
 
-> **Security Note:** `JWT_SECRET` in `docker-compose.yml` is read from the environment variable `${JWT_SECRET}`. It is **not** hardcoded. Always set a strong secret in your `.env` file before running in production.
+> **Security Note:** `JWT_SECRET` in `docker-compose.yml` is read from the environment variable `${JWT_SECRET}`.
 
 ## Seed Data
 
@@ -100,7 +102,7 @@ The backend auto-seeds the SQLite database on first startup:
 
 ### Payments
 
-40 sample payment records are seeded across various merchants (Tokopedia, Shopee, Grab, Bank BCA, Netflix ID, etc.) with mixed statuses (`completed`, `processing`, `failed`) and amounts ranging from Rp12,000 to Rp3,200,000.
+40 sample payment records are seeded across various merchants with mixed statuses (`completed`, `processing`, `failed`)
 
 > **Note:** Seeds only run when the database is empty. Delete `backend/dashboard.db` to re-seed.
 
@@ -109,8 +111,6 @@ The backend auto-seeds the SQLite database on first startup:
 API documentation is available in **OpenAPI/Swagger** format:
 
 - **Swagger UI:** http://localhost:8080/docs
-- **Raw OpenAPI YAML:** http://localhost:8080/docs/openapi.yaml
-- **Source spec:** [openapi.yaml](openapi.yaml)
 
 ### API Endpoints
 
@@ -123,7 +123,6 @@ API documentation is available in **OpenAPI/Swagger** format:
 **Query parameters for `/dashboard/v1/payments`:**
 
 - `status` — Filter by status (`completed`, `processing`, `failed`)
-- `id` — Filter by payment ID
 - `sort` — Sort field with `-` prefix for descending (e.g., `-created_at`, `amount`)
 
 ## Testing
