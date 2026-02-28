@@ -6,7 +6,7 @@ A fullstack payment dashboard application built with **Go** (backend) and **Reac
 
 | Layer    | Technology                                                                       |
 | -------- | -------------------------------------------------------------------------------- |
-| Backend  | Go 1.25+, Chi router, SQLite, Redis, JWT, oapi-codegen                           |
+| Backend  | Go 1.25+, SQLite, Redis, JWT                                                     |
 | Frontend | React 19, Vite 7, TypeScript, TanStack Query/Table, Tailwind, HeadlessUI Zustand |
 | Infra    | Docker, Docker Compose, Redis 7                                                  |
 | DB       | Sqlite                                                                           |
