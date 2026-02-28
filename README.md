@@ -1,6 +1,6 @@
 # DurianPay Payment Dashboard
 
-A fullstack payment dashboard application built with **Go** (backend) and **React + TypeScript** (frontend). Features JWT authentication, payment listing with filtering/sorting, Redis caching, and Swagger API documentation.
+A fullstack payment dashboard application built with **Go** (backend) and **React + TypeScript** (frontend). Features authentication, payment listing with filtering/sorting and Redis caching.
 
 ## Tech Stack
 
@@ -36,13 +36,12 @@ docker compose up --build
 
 Once running:
 
-| Service            | URL                                     |
-| ------------------ | --------------------------------------- |
-| Frontend           | http://localhost:5173                   |
-| Backend API        | http://localhost:8080                   |
-| API Docs (Swagger) | http://localhost:8080/docs              |
-| OpenAPI Spec       | http://localhost:8080/docs/openapi.yaml |
-| Redis              | localhost:6379                          |
+| Service            | URL                 |
+| ------------------ | ------------------- |
+| Frontend           | localhost:5173      |
+| Backend API        | localhost:8080      |
+| API Docs (Swagger) | localhost:8080/docs |
+| Redis              | localhost:6379      |
 
 ## Running Individually (Without Docker)
 
